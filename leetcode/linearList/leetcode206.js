@@ -19,6 +19,35 @@ function ListNode(val, next) {
  * @param {ListNode} head
  * @return {ListNode}
  */
-const reverseList = function(head) {
-
+// 迭代  双指针
+var reverseList = function(head) {
+    let prev = null
+    let cur = head
+    while(cur) {
+        let tem = cur.next
+        cur.next = prev
+        prev = cur
+        cur = tem
+    }
+    return prev
 };
+// 代码简化
+var reverseList = function(head) {
+    let prev = null
+    let cur = head
+    while(cur) {
+        [cur.next, prev, cur] = [prev, cur,cur.next]
+    }
+    return prev
+};
+
+// 递归
+var reverseList = function(head) {
+    if (head == null || head.next == null) {
+        return head;
+    }
+    let p = reverseList(head.next);
+    head.next.next = head;
+    head.next = null;
+    return p;
+}
