@@ -12,9 +12,9 @@ var minimumTotal = function(triangle) {
     dp[0][0] = triangle[0][0]
     for(let i = 1; i < n; i++) {
         for(let j = 0; j <= i; j++) {
-            if(j == 0) {
+            if(j === 0) {
                 dp[i][j] = dp[i-1][j] + triangle[i][j]
-            } else if(j == i) {
+            } else if(j === i) {
                 dp[i][j] = dp[i-1][j-1] + triangle[i][j]
             } else {
                 dp[i][j] = Math.min(dp[i-1][j-1], dp[i-1][j]) + triangle[i][j]
@@ -45,7 +45,7 @@ var minimumTotal = function(triangle) {
     return Math.min(...cur)
 };
 
-// 代码逻辑优化
+// 代码逻辑优化，减少if判断
 var minimumTotal = function(triangle) {
     const n = triangle.length
     if(n < 2) return triangle[0][0]

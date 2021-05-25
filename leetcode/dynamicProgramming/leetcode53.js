@@ -22,7 +22,7 @@ var maxSubArray = function(nums) {
     })
     return max
 };
-// 分支 + 递归
+// 分治 + 递归
 var maxSubArray = function(nums) {
     return getInfo(nums, 0, nums.length - 1).mSum
 };
