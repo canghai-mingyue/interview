@@ -242,7 +242,7 @@ function throttle(fn,delay){
 
 ### apply 和 call 以及bind
 
-通过apply和call改变函数的this指向，他们两个函数的第一个参数都是一样的表示要改变指向的那个对象，第二个参数，apply是数组，而call以及bind则是arg1,arg2...这种形式。 通过bind改变this作用域会返回一个新的函数，这个函数不会马上执行。
+通过apply和call改变函数的this指向，他们两个函数的第一个参数都是一样的表示要改变指向的那个对象，第二个参数，apply是数组，而call以及bind则是arg1,arg2...这种形式。 通过bind改变this作用域会返回一个新的函数，这个函数不会马上执行。call的性能更好，因为参数格式在内部使用时不需要做额外的转换
 
 普通函数严格模式this指向undefined，非严格指向window，class和module默认严格模式
 
@@ -384,6 +384,15 @@ sessionStorage：仅在当前会话下有效，关闭页面或浏览器后被清
 
 消除margin合并，overflow:hidden清除浮动，根据BFC的不与float box重叠的规则，解决了侵占元素问题。
 
+布局规则：
+
+1. 内部的Box会在垂直方向一个接着一个地放置。
+2. Box垂直方向上的距离由margin决定。属于同一个BFC的两个相邻的Box的margin会发生重叠。
+3. 每个盒子的左外边框紧挨着包含块的左边框，即使浮动元素也是如此。
+4. BFC的区域不会与float box重叠。
+5. BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。
+6. 计算BFC的高度时，浮动子元素也参与计算。
+
 触发方式
 
 - 根元素，即HTML标签
@@ -391,6 +400,13 @@ sessionStorage：仅在当前会话下有效，关闭页面或浏览器后被清
 - overflow值不为 visible，为 auto、scroll、hidden
 - display值为 inline-block、table-cell、table-caption、table、inline-table、flex、inline-flex、grid、inline-grid
 - 定位元素：position值为 absolute、fixed
+
+解决问题：
+
+- ​	解决浮动元素令父元素高度坍塌的问题。方法：给父元素开启BFC。原理：计算BFC的高度时，浮动子元素也参与计算。
+- ​	非浮动元素被浮动元素覆盖。方法：给非浮动元素开启BFC。原理：BFC的区域不会与float box重叠。
+- ​	两栏自适应布局。方法：给固定栏设置固定宽度，给不固定栏开启BFC。原理：BFC的区域不会与float box重叠。
+- ​	外边距垂直方向重合的问题。方法：给上box或者下box任意一个包裹新的box并开启BFC。原理：属于同一个BFC的两个相邻的Box的margin会发生重叠。
 
 ### 闭包
 

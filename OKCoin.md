@@ -1,16 +1,24 @@
 BFC
 
-call/apply区别，哪个性能更好？
+事件循环，微任务为什么优先级更高  粒度问题
+
+call/apply/bind区别，哪个性能更好？call的性能更好
 
 三次握手，四次挥手
 
 http缓存
 
-vue模板编译如何实现
+vue模板编译如何实现 template => ast => render        解析 转换 生成
+
+set/map
+
+原型/原型链，作用域/作用域链
+
+箭头函数与this
 
 diff算法
 
-回流与重绘
+回流与重绘 浏览器渲染过程
 
 css可以继承的属性
 
