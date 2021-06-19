@@ -1,4 +1,4 @@
-### 浏览器缓存机制
+###  浏览器缓存机制
 
 强缓存  cache-control(http 1.1 新增，s-maxage或max-age指令)   expires
 
@@ -414,6 +414,8 @@ sessionStorage：仅在当前会话下有效，关闭页面或浏览器后被清
 
 函数内部可以直接读取全局变量，而在函数外部自然无法读取函数内的局部变量。
 
+**「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包。**
+
 闭包特性：
 
 ①函数嵌套函数
@@ -823,6 +825,8 @@ const fn = function(dataFunctions) {
 ### vue3 treeshaking
 
 ### canvas水印
+
+canvas根据坐标来判断点击在何处，进而做交互
 
 ### 质数判断算法
 

@@ -70,6 +70,7 @@ WeakSet、weakMap 不可遍历，WeakSet 中的对象都是弱引用，即垃圾
 
 - 默认绑定外层this
 - 不能用call方法修改里面的this
+- 定义的时候确定this
 
 函数中的this：
 
