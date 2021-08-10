@@ -112,7 +112,9 @@ flex 0 1 auto
 
 typeof ：  返回结果为number、boolean、string、object、undefined、function、Symbol
 
-**instanceof**   检查原型链是否有关系，基本数据类型要通过new来创建才可以检测
+**instanceof**   检查原型链是否有关系，基本数据类型要通过new来创建才可以检测    Symbol.hasInstance：这个属性定义在函数的原型上
+
+isPrototypeOf: 与 **instanceof**   类似
 
 constructor   除了null和undefined，constructor容易被修改
 
@@ -120,10 +122,24 @@ Object.prototype.toString.call()    都可以   ie6兼容问题
 
 ### new做了什么
 
+(1) 在内存中创建一个新对象。
+
+(2) 这个新对象内部的[[Prototype]]特性被赋值为构造函数的 prototype 属性。
+
+(3) 构造函数内部的 this 被赋值为这个新对象（即 this 指向新对象）。
+
+(4) 执行构造函数内部的代码（给新对象添加属性）。
+
+(5) 如果构造函数返回非空对象，则返回该对象；否则，返回刚创建的新对象。
+
+
+
 (1) 创建一个新对象；
 (2) 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；
 (3) 执行构造函数中的代码（为这个新对象添加属性） ；
 (4) 返回新对象。
+
+
 
 ### new手写实现
 
@@ -586,6 +602,19 @@ css3中的animation属性类似于transition属性，都是随着时间去改变
 
 ### 原型
 
+函数才有prototype原型对象
+
+_proto_  也就是[[prototype]]指针 是实例对象就有的 指向构造函数的prototype
+
+isPrototypeOf()   instanceOf()  setPrototypeOf()与Object.create()
+
+```javascript
+console.log(Object.getPrototypeOf(person1) == Person.prototype)  //true 返回参数的内部特性[[Prototype]]的值
+console.log(Person.prototype.isPrototypeOf(person1)); // true    //true 会在传入参数的[[Prototype]]指向调用它的对象时返回 true
+```
+
+
+
 ![img](https://upload-images.jianshu.io/upload_images/1490251-3089c135df71c956.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp)
 
 ### 柯里化
@@ -607,14 +636,6 @@ css3中的animation属性类似于transition属性，都是随着时间去改变
 set
 
 for双循环 
-
-### 继承的多种方式
-
-原型链继承
-
-构造函数继承
-
-组合继承      
 
 ### promise封装请求
 
@@ -641,17 +662,6 @@ onEvent
 解决外边距合并问题
 
 ### 手写发布订阅
-
-### requestanimationFrame  和 setinterval
-
-1.经过浏览器优化，动画更流畅
-
-2.窗口没激活时，动画将停止，省计算资源
-
-3.更省电，尤其是对移动终端
-
-requestAnimationFrame最大的优势是
-由系统来决定回调函数的执行时机。具体一点讲，如果屏幕刷新率是60Hz,那么回调函数就每16.7ms被执行一次，如果刷新率是75Hz，那么这个时间间隔就变成了1000/75=13.3ms，换句话说就是，requestAnimationFrame的步伐跟着系统的刷新步伐走。它能保证回调函数在屏幕每一次的刷新间隔中只被执行一次，这样就不会引起丢帧现象，也不会导致动画出现卡顿的问题
 
 ### less和scss
 
@@ -720,6 +730,8 @@ Object instanceof Function //true
 **箭头函数没有原型，不能继承**
 箭头函数不能当做Generator函数,不能使用yield关键字
 
+箭头函数不能使用 arguments、super 和 new.target，也不能用作构造函数。此外，箭头函数也没有 prototype 属性。
+
 ### 静态方法和实例方法
 
 静态方法：属于类的方法，即类可以直接调用的方法。为类所有实例化对象所共用（但不能用实例对象之间调用），所以静态成员只在内存中占一块区域；
@@ -786,6 +798,29 @@ for (var i=1; i<=5; i++) {
 
 ### 原型链实现继承
 
+每个构造函数都有一个原型对象，原型有一个属性指回构造函数，而实例有一个内部指针指向原型。如果**原型是另一个类型的实例**呢？那就意味着这个原型本身有一个内部指针指向另一个原型，相应地另一个原型也有一个指针指向另一个构造函数。这样就在实例和原型之间构造了一条原型链。这就是原型链的基本构想。
+
+```javascript
+function SuperType() { 
+ this.property = true; 
+} 
+SuperType.prototype.getSuperValue = function() { 
+ return this.property; 
+}; 
+function SubType() { 
+ this.subproperty = false; 
+} 
+// 继承 SuperType 
+SubType.prototype = new SuperType(); 
+SubType.prototype.getSubValue = function () { 
+ return this.subproperty; 
+}; 
+let instance = new SubType(); 
+console.log(instance.getSuperValue()); // true
+```
+
+
+
 ### 倒计时函数
 
 ### 最近公共父节点
@@ -832,4 +867,43 @@ canvas根据坐标来判断点击在何处，进而做交互
 
 ### 数组平方重新排序算法
 
-###                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+### 手写实现题目
+
+```javascript
+1.实现一个 curry函数
+
+ 
+
+function curry () {}
+
+ 
+
+// 输出
+
+const curryAdd = curry((a, b) => a + b);
+
+const addTen = curryAdd(10);
+
+console.log(addTen(1));
+
+console.log(addTen(21));
+
+console.log(addTen(100));
+
+ 
+
+2.实现一个toChinese函数
+
+ 
+
+// 输出
+
+最大到10亿
+
+toChinese(100) => '一百'
+
+toChinese(231) => '二百三十一'
+
+toChinese(10010) => '一万零一十'
+```
+
