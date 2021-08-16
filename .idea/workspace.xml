@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a16989a7-8241-4998-af86-0cf95e2efa4a" name="Default" comment="resolve Conflicts">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basicsKnowledge/interview subject.md" beforeDir="false" afterPath="$PROJECT_DIR$/basicsKnowledge/interview subject.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basicsKnowledge/网络协议与浏览器.md" beforeDir="false" afterPath="$PROJECT_DIR$/basicsKnowledge/网络协议与浏览器.md" afterDir="false" />
@@ -38,8 +36,8 @@
       <file leaf-file-name="leetcode69.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode/binarySearch/leetcode69.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="738">
+              <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -215,7 +213,7 @@
       <workItem from="1624878772230" duration="1448000" />
       <workItem from="1628489917041" duration="695000" />
       <workItem from="1628733696129" duration="599000" />
-      <workItem from="1629079357182" duration="617000" />
+      <workItem from="1629079357182" duration="1741000" />
     </task>
     <task id="LOCAL-00001" summary="trytry">
       <created>1616652586916</created>
@@ -340,10 +338,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11473000" />
+    <option name="totallyTimeSpent" value="12597000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -358,7 +357,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.499501" weight="0.32964823" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19361277" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19361277" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -377,6 +376,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -751,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode/binarySearch/leetcode69.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="738">
+          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
         </state>
       </provider>
     </entry>
